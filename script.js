@@ -24,20 +24,24 @@ function searchMeal(e) {
         .then(data => {
             resultHeading.innerHTML = `<h2>Search result for ${term} :</h2>`;
             console.log(data)
-            mealsEl.innerHTML = data.meals.map( meal => 
-                `
-                <div class="meal">
-                <img src="${meal.strMealThumb}" alt="${meal.strMeal}"></img>
-                <div class="meal-info data-mealID="${meal.isMeal}>${meal.strMeal}</div>
-                </div>
-                `
-            );
+
+
+            if(data.meals === null) {
+                resultHeading.innerHTML = `<p>there are no search. try again</p>`;
+            } else {
+                mealsEl.innerHTML = data.meals.map( meal => 
+                    `<div class="meal">
+                    <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+                    <div class="meal-info" data-mealID="${meal.isMeal}"><h3>${meal.strMeal}</h3></div>
+                    </div>
+                `);
+            }
             
         });
 
         // clear searchText
         search.value = '';
-        
+
     } else {
         alert('Please enter a search term')
     }
