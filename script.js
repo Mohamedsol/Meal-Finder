@@ -24,7 +24,7 @@ function searchMeal(e) {
         resultHeading.innerHTML = `<h2>Search results for '${term}':</h2>`;
 
         if (data.meals === null) {
-          resultHeading.innerHTML = `<p>There are no search results. Try again!<p>`;
+          resultHeading.innerHTML = `<h2>There are no search results. Try again!</h2>`;
         } else {
           mealsEl.innerHTML = data.meals
             .map(
