@@ -41,7 +41,8 @@ h2{
 .flex-form {
 display: flex;
 background-color: #fff;
-border-radius: 10rem
+border-radius: 10rem;
+animation: moveToLeft 2s;
 }
 
 button,
@@ -88,8 +89,11 @@ input[type="text"] {
   cursor: pointer;
   width: 50px;
   font-size: 1rem;
+  animation-name: btnAnimation;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  animation-fill-mode: backwards;
 }
-
 .meals {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -228,8 +232,23 @@ i{
     transform: translateX(0);
     opacity: 1;
   }
-
+}
   
 @keyframes moveToLeft {
-  
+  0% {
+    transform: translateX(-120px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+}
+}
+@keyframes btnAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+}
 }
